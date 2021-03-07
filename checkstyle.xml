@@ -39,7 +39,7 @@
         <module name="VisibilityModifier"/>
         <!-- Checks for Naming Conventions.                  -->
         <!-- See http://checkstyle.sf.net/config_naming.html -->
-        <module name="ConstantName"/>
+        <!--<module name="ConstantName"/>-->
         <!--<module name="LocalFinalVariableName"/>-->
         <module name="LocalVariableName"/>
         <module name="MemberName"/>
@@ -48,7 +48,7 @@
             <property name="format" value="^[a-z]+(\.[a-z0-9]*)*$"/>
         </module>
         <module name="ParameterName"/>
-        <module name="StaticVariableName"/>
+        <!--<module name="StaticVariableName"/>-->
         <module name="TypeName"/>
 
         <!-- Checks for Size Violations.                    -->
