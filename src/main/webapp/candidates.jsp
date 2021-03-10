@@ -34,9 +34,11 @@
                     <thead>
                     <tr>
                         <th scope="col">Названия</th>
+                        <th scope="col">Фото</th>
                     </tr>
                     </thead>
                     <tbody>
+
                     <c:forEach items="${candidates}" var="can">
                         <tr>
                             <td>
@@ -44,6 +46,17 @@
                                     <i class="fa fa-edit mr-3"></i>
                                 </a>
                                 <c:out value="${can.name}"/>
+                            </td>
+                            <td>
+                                <img src="<c:url value='/download?name=${can.id}.jpg'/>" width="100px" height="100px"/>
+                                <br>
+                                <a href='<c:url value="/upload.jsp?id=${can.id}"/>'>
+                                    <button style="font-size:14px">добавить<i class="fa fa-edit"></i></button>
+                                </a>
+                                <br>
+                                <a href='<c:url value="/delete?name=${can.id}.jpg"/>'>
+                                    <button style="font-size:14px">удалить<i class="fa fa-edit"></i></button>
+                                </a>
                             </td>
                         </tr>
                     </c:forEach>
@@ -55,3 +68,4 @@
 </div>
 </body>
 </html>
+
