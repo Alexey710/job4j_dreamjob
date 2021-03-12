@@ -2,6 +2,8 @@ package ru.job4j.dream.store;
 
 import ru.job4j.dream.model.Candidate;
 import ru.job4j.dream.model.Post;
+import ru.job4j.dream.model.User;
+
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -56,7 +58,17 @@ public class MemStore implements Store {
         candidates.put(candidate.getId(), candidate);
     }
 
+    @Override
+    public void save(User user) {
+
+    }
+
     public Candidate findByIdCan(int id) {
         return candidates.get(id);
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return null;
     }
 }
