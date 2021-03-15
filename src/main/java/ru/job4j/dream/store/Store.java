@@ -22,4 +22,6 @@ public interface Store {
     Candidate findByIdCan(int id);
 
     User findByEmail(String email);
+
+    void deleteCan(int id);
 }

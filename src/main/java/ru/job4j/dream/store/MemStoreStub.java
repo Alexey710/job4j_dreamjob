@@ -65,4 +65,9 @@ public class MemStoreStub implements Store {
     public User findByEmail(String email) {
         return null;
     }
+
+    @Override
+    public void deleteCan(int id) {
+
+    }
 }

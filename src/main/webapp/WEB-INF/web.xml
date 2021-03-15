@@ -76,12 +76,13 @@
     <url-pattern>/reg.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>GreetingServlet</servlet-name>
-    <servlet-class>ru.job4j.dream.servlet.GreetingServlet</servlet-class>
+    <servlet-name>CandidateDeleteServlet</servlet-name>
+    <servlet-class>ru.job4j.dream.servlet.CandidateDeleteServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>GreetingServlet</servlet-name>
-    <url-pattern>/greet</url-pattern>
+    <servlet-name>CandidateDeleteServlet</servlet-name>
+    <url-pattern>/delete_can</url-pattern>
   </servlet-mapping>
+
 </web-app>
 
