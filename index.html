@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function validate() {
+            if ($('#id1').val() == "") {
+                alert($('#id1').attr('title'));
+                return false;
+            }
+            if ($('#id2').val() == "") {
+                alert($('#id2').attr('title'));
+                return false;
+            }
+            var ele = document.getElementsByName('gender');
+            if (!ele[0].checked && !ele[1].checked) {
+                alert($('#male').attr('title'));
+                return false;
+            }
+            if ($('#description').val() == "") {
+                alert($('#description').attr('title'));
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -17,22 +38,22 @@
     <form action="">
         <div class="form-group">
             <label for="id1">Name:</label>
-            <input type="text" name ="name" id="id1">
+            <input type="text" class="form-control" title="Enter user name." name ="name" id="id1">
         </div>
         <div class="form-group">
             <label for="id2">Surname:</label>
-            <input type="text" name ="name" id="id2">
+            <input type="text" class="form-control" title="Enter user surname." name ="name" id="id2">
         </div>
 
-        <input type="radio" id="male" name="gender" value="male">
+        <input type="radio"  title="Enter user gender." id="male" name="gender" value="male">
         <label for="male">Male</label><br>
-        <input type="radio" id="female" name="gender" value="female">
+        <input type="radio"  title="Enter user gender." id="female" name="gender" value="female">
         <label for="female">Female</label><br><br>
 
         <label for="description">Description:</label><br>
-        <textarea id="description" name="description" rows="4" cols="50"></textarea>
+        <textarea title="Enter user description." id="description" name="description" rows="4" cols="50"></textarea>
         <br><br>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default" onclick="return validate();">Submit</button>
     </form>
 
     <h2>Data table:</h2>
