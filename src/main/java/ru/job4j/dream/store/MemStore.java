@@ -76,4 +76,9 @@ public class MemStore implements Store {
     public void deleteCan(int id) {
 
     }
+
+    @Override
+    public Collection<String> findAllCities() {
+        return null;
+    }
 }

@@ -70,4 +70,9 @@ public class MemStoreStub implements Store {
     public void deleteCan(int id) {
 
     }
+
+    @Override
+    public Collection<String> findAllCities() {
+        return null;
+    }
 }

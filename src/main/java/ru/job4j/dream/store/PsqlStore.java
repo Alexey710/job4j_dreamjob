@@ -262,4 +262,21 @@ public class PsqlStore implements Store {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public Collection<String> findAllCities() {
+        List<String> city = new ArrayList<>();
+        try (Connection cn = pool.getConnection();
+             PreparedStatement ps =  cn.prepareStatement("SELECT city FROM cities")
+        ) {
+            try (ResultSet it = ps.executeQuery()) {
+                while (it.next()) {
+                    city.add(it.getString("city"));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return city;
+    }
 }

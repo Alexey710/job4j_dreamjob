@@ -18,6 +18,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function validate() {
+            if ($('#password').val() == "") {
+                alert($('#password').attr('title'));
+                return false;
+            }
+            if ($('#email').val() == "") {
+                alert($('#email').attr('title'));
+                return false;
+            }
+        }
+    </script>
 
     <title>Работа мечты</title>
 </head>
@@ -32,14 +46,14 @@
             <div class="card-body">
                 <form action="<%=request.getContextPath()%>/auth.do" method="post">
                     <div class="form-group">
-                        <label>Почта</label>
-                        <input type="text" class="form-control" name="email">
+                        <label for="email">Почта</label>
+                        <input id="email" title="Enter e-mail." type="text" class="form-control" name="email">
                     </div>
                     <div class="form-group">
-                        <label>Пароль</label>
-                        <input type="text" class="form-control" name="password">
+                        <label for="password">Пароль</label>
+                        <input id="password" title="Enter password." type="text" class="form-control" name="password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Войти</button>
+                    <button type="submit" class="btn btn-primary" onclick="return validate();">Войти</button>
                 </form>
                 <p><c:out value="${error}"/></p>
                 <p><c:out value="${status}"/></p>

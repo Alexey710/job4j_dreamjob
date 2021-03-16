@@ -24,4 +24,7 @@ public interface Store {
     User findByEmail(String email);
 
     void deleteCan(int id);
+
+    Collection<String> findAllCities();
+
 }
