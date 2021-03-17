@@ -26,24 +26,39 @@
                 alert($('#name').attr('title'));
                 return false;
             }
+            if ($('#select').val() == "") {
+                alert($('#select').attr('title'));
+                return false;
+            }
         }
         function list() {
-            $.ajax({
-                type: 'GET',
+              $.ajax({
+                type: "POST",
                 url: 'http://localhost:8080/job4j_dreamjob/city',
-                data: 'name=',
-                dataType: 'text'
-            }).done(function(data) {
-                alert(data);
-            }).fail(function(err){
-                alert(err);
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(data){
+                    $.each(data, function(key, value) {
+                        $('#select').append('<option value="' + key + '">' + value + '</option>');
+                    });
+                },
+                error: function(errMsg) {
+                    alert(errMsg);
+                }
             });
         }
     </script>
 
     <title>Работа мечты</title>
 </head>
-<body>
+
+<style>
+    select {
+        width: 300px;
+    }
+</style>
+
+<body onload="list();">
 <%
     String id = request.getParameter("id");
     Candidate can = new Candidate(0, "");
@@ -89,10 +104,8 @@
                     </div>
                     <div>
                         <label for="select">Город</label><br>
-                        <select id="select" onclick="return list();">
-                            <c:forEach items="${cities}" var="city">
-                                <option value="city"><c:out value="${city}"/></option>
-                            </c:forEach>
+                        <select id="select" title="Enter city.">
+                            <option id="option"></option>
                         </select>
                     </div><br><br>
                     <button type="submit" class="btn btn-primary" onclick="return validate();">Сохранить</button>
