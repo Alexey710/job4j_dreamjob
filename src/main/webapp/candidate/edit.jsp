@@ -101,10 +101,9 @@
                         <label for="name">Имя</label>
                         <input id="name" title="Enter candidate name." type="text" class="form-control"
                                name="name" value="<%=can.getName()%>">
-                    </div>
-                    <div>
+
                         <label for="select">Город</label><br>
-                        <select id="select" title="Enter city.">
+                        <select id="select" title="Enter city." type="text" class="form-control">
                             <option id="option"></option>
                         </select>
                     </div><br><br>

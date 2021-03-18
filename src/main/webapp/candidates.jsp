@@ -68,18 +68,16 @@
                                 <a class="btn btn-danger" href="<c:url value='/delete_can?id=${can.id}'/>">
                                     <i class="fa fa-trash-o fa-lg"></i> Удалить кандидата
                                 </a>
-
-
                             </td>
                             <td>
                                 <img src="<c:url value='/download?name=${can.id}.jpg'/>" width="100px" height="100px"/>
                                 <br>
                                 <a href='<c:url value="/upload.jsp?id=${can.id}"/>'>
-                                    <button style="font-size:14px;width:100px">добавить<i class="fa fa-edit"></i></button>
+                                    <i class="fa fa-check" style="color:green"></i> добавить
                                 </a>
                                 <br>
                                 <a href='<c:url value="/delete?name=${can.id}.jpg"/>'>
-                                    <button style="font-size:14px;width:100px">удалить<i class="fa fa-edit"></i></button>
+                                    <i class="fa fa-times" style="color:red"></i> удалить
                                 </a>
                             </td>
                         </tr>
