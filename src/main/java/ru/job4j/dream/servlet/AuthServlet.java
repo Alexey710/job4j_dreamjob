@@ -16,8 +16,8 @@ public class AuthServlet extends HttpServlet {
             throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        User user = PsqlStore.instOf().findByEmail(email);
-        if (user != null && user.getEmail().equals(email) && user.getPassword().equals(password)) {
+        User user = PsqlStore.instOf().findByCredential(email, password);
+        if (user != null) {
             HttpSession sc = req.getSession();
             sc.setAttribute("user", user);
             resp.sendRedirect(req.getContextPath() + "/posts.do");

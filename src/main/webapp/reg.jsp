@@ -18,8 +18,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
-
+    <script>
+        function validate() {
+            if ($('#password').val() == "") {
+                alert($('#password').attr('title'));
+                return false;
+            }
+            if ($('#email').val() == "") {
+                alert($('#email').attr('title'));
+                return false;
+            }
+            if ($('#name').val() == "") {
+                alert($('#name').attr('title'));
+                return false;
+            }
+        }
+    </script>
     <title>Работа мечты</title>
+
 </head>
 <body>
 <div class="container pt-3">
@@ -33,17 +49,19 @@
                 <form action="<%=request.getContextPath()%>/reg.do" method="post">
                     <div class="form-group">
                         <label>Имя</label>
-                        <input type="text" class="form-control" name="name">
+                        <input id="name" title="Enter  name." type="text" class="form-control" name="name">
                     </div>
                     <div class="form-group">
                         <label>Почта</label>
-                        <input type="text" class="form-control" name="email">
+                        <input id="email" title="Enter email." type="text" class="form-control" name="email">
                     </div>
                     <div class="form-group">
                         <label>Пароль</label>
-                        <input type="text" class="form-control" name="password">
+                        <input id="password" title="Enter password." type="text" class="form-control" name="password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                    <button type="submit" class="btn btn-primary" onclick="return validate();">
+                        Зарегистрироваться
+                    </button>
                 </form>
             </div>
         </div>

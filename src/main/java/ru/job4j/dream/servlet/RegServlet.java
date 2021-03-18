@@ -16,7 +16,7 @@ public class RegServlet extends HttpServlet {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        User user = PsqlStore.instOf().findByEmail(email);
+        User user = PsqlStore.instOf().findByCredential(email, password);
         if (user == null) {
             PsqlStore.instOf().save(new User(0, name, email, password));
             req.setAttribute("status", "Пользователь зарегистрирован.");

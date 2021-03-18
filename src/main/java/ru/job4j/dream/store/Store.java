@@ -21,7 +21,7 @@ public interface Store {
 
     Candidate findByIdCan(int id);
 
-    User findByEmail(String email);
+    User findByCredential(String email, String password);
 
     void deleteCan(int id);
 

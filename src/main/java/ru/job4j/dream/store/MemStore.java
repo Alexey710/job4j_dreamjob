@@ -68,7 +68,7 @@ public class MemStore implements Store {
     }
 
     @Override
-    public User findByEmail(String email) {
+    public User findByCredential(String email, String password) {
         return null;
     }
 

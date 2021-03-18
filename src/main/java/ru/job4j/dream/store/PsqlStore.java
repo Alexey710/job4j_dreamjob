@@ -228,12 +228,14 @@ public class PsqlStore implements Store {
     }
 
     @Override
-    public User findByEmail(String email) {
+    public User findByCredential(String email, String password) {
         User user = null;
         try (Connection cn = pool.getConnection();
-             PreparedStatement ps =  cn.prepareStatement("SELECT * FROM users WHERE email = ?")
+             PreparedStatement ps =  cn.prepareStatement(
+                     "SELECT * FROM users WHERE email = ? AND password = ?")
         ) {
             ps.setString(1, email);
+            ps.setString(2, password);
             try (ResultSet it = ps.executeQuery()) {
                 while (it.next()) {
                     user = new User(
